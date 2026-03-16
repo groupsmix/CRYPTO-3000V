@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+
 async function requireAdminApi() {
   const session = await getServerSession(authOptions);
   if (!session?.user || session.user.role !== "admin") {
